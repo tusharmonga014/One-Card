@@ -19,8 +19,8 @@ docReady(function() {
         if (qrCodeMessage !== lastResult) {
             ++countResults;
             lastResult = qrCodeMessage;
-            resultContainer.innerHTML += `<div>[${countResults}] - ${qrCodeMessage}</div>`;
-            
+            // resultContainer.innerHTML += `<div>[${countResults}] - ${qrCodeMessage}</div>`;
+            window.location.href = qrCodeMessage;
             // Optional: To close the QR code scannign after the result is found
             html5QrcodeScanner.clear();
         }
@@ -28,7 +28,6 @@ docReady(function() {
     
     // Optional callback for error, can be ignored.
     function onScanError(qrCodeError) {
-        console.log(qrCodeMessage);
     }
     
     html5QrcodeScanner.render(onScanSuccess, onScanError);
